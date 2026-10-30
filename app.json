@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Dee Kitchen Tasta",
+    "slug": "dee-kitchen-tasta",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "web": {
+      "bundler": "metro",
+      "name": "Dee Kitchen Tasta",
+      "shortName": "Dee Kitchen",
+      "lang": "en"
+    }
+  }
+}

@@ -113,19 +113,109 @@ export const styles = StyleSheet.create({
     letterSpacing: 2,
   },
 
-  heroTitle: {
+  heroTitleWrapper: {
+    width: "100%",
+    alignItems: "flex-start",
+    marginTop: 5,
+  },
+
+  heroEyebrow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 22,
+  },
+
+  heroEyebrowLine: {
+    width: 28,
+    height: 3,
+    backgroundColor: COLORS.orange,
+    borderRadius: 5,
+  },
+
+  heroEyebrowText: {
+    color: COLORS.muted,
+    fontSize: 10,
     fontWeight: "900",
+    letterSpacing: 2.5,
+  },
+
+  heroHeading: {
+    width: "100%",
+    alignItems: "flex-start",
+    gap: 5,
+  },
+
+  heroTitle: {
     color: COLORS.dark,
-    lineHeight: 1.12,
-    letterSpacing: -2,
+    fontWeight: "900",
+    letterSpacing: -3,
+    lineHeight: 1.15,
+  },
+
+  heroHighlightWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start",
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 6,
+    marginVertical: 4,
+    gap: 8,
   },
 
   heroHighlight: {
-    color: COLORS.primary,
+    color: COLORS.white,
+    fontWeight: "900",
+    letterSpacing: -2.5,
+    lineHeight: 1.2,
+  },
+
+  heroHighlightStar: {
+    color: COLORS.orange,
+    fontSize: 19,
+    fontWeight: "900",
+  },
+
+  heroLastWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 3,
   },
 
   heroLast: {
     color: COLORS.orange,
+    fontWeight: "900",
+    letterSpacing: -3,
+    lineHeight: 1.15,
+  },
+
+  heroAccent: {
+    color: COLORS.primary,
+    fontSize: 27,
+    fontWeight: "900",
+  },
+
+  heroCaption: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 23,
+  },
+
+  heroCaptionLine: {
+    width: 24,
+    height: 1,
+    backgroundColor: COLORS.orange,
+  },
+
+  heroCaptionText: {
+    fontSize: 9,
+    color: COLORS.muted,
+    fontWeight: "900",
+    letterSpacing: 2,
   },
 
   heroDescription: {

@@ -176,13 +176,52 @@ export default function App() {
               <Text style={styles.eyebrowText}>A TASTE OF CALABAR</Text>
             </View>
 
-            <Text style={[styles.heroTitle, { fontSize: isDesktop ? 66 : 45 }]}>
-              Real food.
-              {"\n"}
-              <Text style={styles.heroHighlight}>Real flavour.</Text>
-              {"\n"}
-              <Text style={styles.heroLast}>Real love.</Text>
-            </Text>
+            <View style={styles.heroTitleWrapper}>
+              <View style={styles.heroEyebrow}>
+                <View style={styles.heroEyebrowLine} />
+                <Text style={styles.heroEyebrowText}>
+                  GOOD FOOD. GREAT MEMORIES.
+                </Text>
+              </View>
+
+              <View style={styles.heroHeading}>
+                <Text
+                  style={[styles.heroTitle, { fontSize: isDesktop ? 70 : 47 }]}
+                >
+                  Real food.
+                </Text>
+
+                <View style={styles.heroHighlightWrapper}>
+                  <Text
+                    style={[
+                      styles.heroHighlight,
+                      { fontSize: isDesktop ? 70 : 45 },
+                    ]}
+                  >
+                    Real flavour.
+                  </Text>
+                  <Text style={styles.heroHighlightStar}>✦</Text>
+                </View>
+
+                <View style={styles.heroLastWrapper}>
+                  <Text
+                    style={[styles.heroLast, { fontSize: isDesktop ? 70 : 47 }]}
+                  >
+                    Real love.
+                  </Text>
+                  <Text style={styles.heroAccent}>♥</Text>
+                </View>
+              </View>
+
+              <View style={styles.heroCaption}>
+                <View style={styles.heroCaptionLine} />
+                <Text style={styles.heroCaptionText}>
+                  AUTHENTIC CALABAR FLAVOURS
+                </Text>
+              </View>
+            </View>
+
+            {/* HERO DESCRIPTION 
 
             <Text style={styles.heroDescription}>
               Authentic Calabar flavours, cooked fresh and served with love.
@@ -205,6 +244,8 @@ export default function App() {
                 </Text>
               </TouchableOpacity>
             </View>
+
+            */}
 
             <View style={styles.heroNote}>
               <Text style={styles.heroNoteText}>

@@ -142,33 +142,32 @@ export const styles = StyleSheet.create({
 
   heroHeading: {
     width: "100%",
+    marginTop: 10,
     alignItems: "flex-start",
-    gap: 5,
   },
 
   heroTitle: {
     color: COLORS.dark,
     fontWeight: "900",
     letterSpacing: -3,
-    lineHeight: 1.15,
+    lineHeight: 1.2,
+    marginBottom: 18,
   },
 
   heroHighlightWrapper: {
     flexDirection: "row",
     alignItems: "center",
     alignSelf: "flex-start",
-    backgroundColor: COLORS.primary,
-    paddingHorizontal: 12,
-    paddingVertical: 5,
-    borderRadius: 6,
-    marginVertical: 4,
+    padding: 0,
     gap: 8,
   },
 
   heroHighlight: {
-    color: COLORS.white,
+    color: COLORS.primary,
     fontWeight: "900",
-    letterSpacing: -2.5,
+    letterSpacing: -3,
+    marginBottom: 50,
+    marginTop: 50,
     lineHeight: 1.2,
   },
 
@@ -182,14 +181,13 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    marginTop: 3,
   },
 
   heroLast: {
     color: COLORS.orange,
     fontWeight: "900",
     letterSpacing: -3,
-    lineHeight: 1.15,
+    lineHeight: 1.2,
   },
 
   heroAccent: {

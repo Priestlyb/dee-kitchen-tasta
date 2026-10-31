@@ -1,10 +1,5 @@
-
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { COLORS } from "../constants/brand";
 import { money } from "../data/menu";
@@ -37,7 +32,11 @@ export default function FoodCard({
     >
       <View style={styles.foodCardVisual}>
         <View style={styles.foodCardCircle}>
-          <Text style={styles.foodCardEmoji}>🍲</Text>
+          <Image
+            source={food.image}
+            style={styles.foodCardImage}
+            resizeMode="cover"
+          />
         </View>
 
         <View style={styles.foodCardTag}>
@@ -48,13 +47,9 @@ export default function FoodCard({
       <View style={styles.foodCardContent}>
         <Text style={styles.foodName}>{food.name}</Text>
 
-        <Text style={styles.foodDescription}>
-          {food.description}
-        </Text>
+        <Text style={styles.foodDescription}>{food.description}</Text>
 
-        <Text style={styles.portionLabel}>
-          SELECT YOUR PORTION
-        </Text>
+        <Text style={styles.portionLabel}>SELECT YOUR PORTION</Text>
 
         <View style={styles.portionList}>
           {food.portions.map((portion) => {
@@ -71,10 +66,7 @@ export default function FoodCard({
               >
                 <View style={styles.portionLeft}>
                   <View
-                    style={[
-                      styles.radio,
-                      isSelected && styles.radioSelected,
-                    ]}
+                    style={[styles.radio, isSelected && styles.radioSelected]}
                   >
                     {isSelected && <View style={styles.radioDot} />}
                   </View>

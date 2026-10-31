@@ -9,6 +9,7 @@ import {
   useWindowDimensions,
   StatusBar,
   SafeAreaView,
+  Image,
 } from "react-native";
 
 import { COLORS, BUSINESS } from "./src/constants/brand";
@@ -121,7 +122,11 @@ export default function App() {
           style={styles.brand}
         >
           <View style={styles.brandMark}>
-            <Text style={styles.brandMarkText}>D</Text>
+            <Image
+              source={require("./assets/logo.png")}
+              style={styles.brandMarkText}
+              resizeMode="contain"
+            />
           </View>
 
           <View>
@@ -258,12 +263,16 @@ export default function App() {
             style={[styles.heroVisual, { minHeight: isDesktop ? 450 : 270 }]}
           >
             <View style={styles.heroCircle}>
-              <Text style={styles.heroFoodIcon}>🍲</Text>
-
-              <Text style={styles.heroVisualTitle}>THE TASTE OF HOME</Text>
-
-              <Text style={styles.heroVisualSub}>CALABAR FLAVOURS</Text>
+              <Image
+                source={require("./assets/africanMeal.png")}
+                style={styles.heroFoodImage}
+                resizeMode="contain"
+              />
             </View>
+
+            <Text style={styles.heroVisualTitle}>THE TASTE OF HOME</Text>
+
+            <Text style={styles.heroVisualSub}>CALABAR FLAVOURS</Text>
 
             <View style={styles.heroBadge}>
               <Text style={styles.heroBadgeTop}>HOT • FRESH</Text>
@@ -375,7 +384,7 @@ export default function App() {
           ]}
         >
           <View style={styles.aboutVisual}>
-            <Text style={styles.aboutEmoji}>❤️</Text>
+            <Text style={styles.aboutEmoji}>♥</Text>
 
             <Text style={styles.aboutVisualTitle}>COOKED WITH LOVE</Text>
 
@@ -431,12 +440,12 @@ export default function App() {
                 </Text>
               </View>
 
-              <Text style={styles.cartIcon}>🛍️</Text>
+              <Text style={styles.cartIcon}>🛒</Text>
             </View>
 
             {cart.length === 0 ? (
               <View style={styles.emptyCart}>
-                <Text style={styles.emptyCartIcon}>🍲</Text>
+                <Text style={styles.emptyCartIcon}>🥘</Text>
 
                 <Text style={styles.emptyCartTitle}>Your basket is empty</Text>
 

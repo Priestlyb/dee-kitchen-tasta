@@ -7,9 +7,11 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.cream,
   },
 
+  // NAVIGATION
   nav: {
-    minHeight: 76,
-    paddingHorizontal: 25,
+    minHeight: 72,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -22,40 +24,44 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+    flexShrink: 1,
   },
 
   brandMark: {
-    height: 43,
-    width: 43,
+    height: 42,
+    width: 42,
     borderRadius: 12,
     backgroundColor: COLORS.primary,
     alignItems: "center",
     justifyContent: "center",
+    flexShrink: 0,
   },
 
   brandMarkText: {
-    fontSize: 26,
-    fontWeight: "900",
-    color: COLORS.white,
+    width: "100%",
+    height: "100%",
+    borderRadius: 100,
   },
 
   brandName: {
     fontWeight: "900",
     fontSize: 15,
     color: COLORS.primary,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   },
 
   brandSub: {
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "800",
-    letterSpacing: 4,
+    letterSpacing: 3,
     color: COLORS.dark,
+    marginTop: 2,
   },
 
   navLinks: {
     flexDirection: "row",
-    gap: 35,
+    gap: 28,
+    alignItems: "center",
   },
 
   navLink: {
@@ -66,20 +72,22 @@ export const styles = StyleSheet.create({
 
   navOrder: {
     backgroundColor: COLORS.primary,
-    paddingVertical: 13,
-    paddingHorizontal: 22,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
     borderRadius: 7,
   },
 
   navOrderText: {
     color: COLORS.white,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "800",
   },
 
+  // HERO
   hero: {
-    paddingTop: 65,
-    paddingBottom: 65,
+    paddingHorizontal: 22,
+    paddingTop: 45,
+    paddingBottom: 50,
     alignItems: "center",
     justifyContent: "space-between",
     gap: 35,
@@ -90,18 +98,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     width: "100%",
+    minWidth: 0,
   },
 
   eyebrow: {
     flexDirection: "row",
     alignItems: "center",
     gap: 9,
-    marginBottom: 22,
+    marginBottom: 20,
   },
 
   eyebrowDot: {
-    width: 9,
-    height: 9,
+    width: 8,
+    height: 8,
     borderRadius: 9,
     backgroundColor: COLORS.orange,
   },
@@ -109,8 +118,8 @@ export const styles = StyleSheet.create({
   eyebrowText: {
     color: COLORS.primary,
     fontWeight: "900",
-    fontSize: 11,
-    letterSpacing: 2,
+    fontSize: 10,
+    letterSpacing: 1.5,
   },
 
   heroTitleWrapper: {
@@ -123,11 +132,11 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    marginBottom: 22,
+    marginBottom: 18,
   },
 
   heroEyebrowLine: {
-    width: 28,
+    width: 25,
     height: 3,
     backgroundColor: COLORS.orange,
     borderRadius: 5,
@@ -135,23 +144,23 @@ export const styles = StyleSheet.create({
 
   heroEyebrowText: {
     color: COLORS.muted,
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "900",
-    letterSpacing: 2.5,
+    letterSpacing: 2,
   },
 
   heroHeading: {
     width: "100%",
-    marginTop: 10,
+    marginTop: 5,
     alignItems: "flex-start",
   },
 
   heroTitle: {
     color: COLORS.dark,
     fontWeight: "900",
-    letterSpacing: -3,
+    letterSpacing: -2,
     lineHeight: 1.2,
-    marginBottom: 18,
+    marginBottom: 14,
   },
 
   heroHighlightWrapper: {
@@ -165,42 +174,41 @@ export const styles = StyleSheet.create({
   heroHighlight: {
     color: COLORS.primary,
     fontWeight: "900",
-    letterSpacing: -3,
-    marginBottom: 50,
-    marginTop: 50,
+    letterSpacing: -2,
+    marginBottom: 20,
+    marginTop: 15,
     lineHeight: 1.2,
   },
 
   heroHighlightStar: {
     color: COLORS.orange,
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: "900",
   },
 
   heroLastWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
+    gap: 9,
   },
 
   heroLast: {
     color: COLORS.orange,
     fontWeight: "900",
-    letterSpacing: -3,
+    letterSpacing: -2,
     lineHeight: 1.2,
   },
 
   heroAccent: {
     color: COLORS.primary,
-    fontSize: 27,
-    fontWeight: "900",
+    fontSize: 25,
   },
 
   heroCaption: {
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    marginTop: 23,
+    marginTop: 22,
   },
 
   heroCaptionLine: {
@@ -210,60 +218,65 @@ export const styles = StyleSheet.create({
   },
 
   heroCaptionText: {
-    fontSize: 9,
+    fontSize: 8,
     color: COLORS.muted,
     fontWeight: "900",
-    letterSpacing: 2,
+    letterSpacing: 1.5,
   },
 
   heroDescription: {
     color: COLORS.muted,
-    fontSize: 16,
-    lineHeight: 27,
-    marginTop: 22,
+    fontSize: 15,
+    lineHeight: 25,
+    marginTop: 20,
     maxWidth: 420,
   },
 
   heroButtons: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 12,
-    marginTop: 30,
+    gap: 10,
+    marginTop: 25,
+    width: "100%",
   },
 
   primaryButton: {
     backgroundColor: COLORS.primary,
-    paddingHorizontal: 23,
-    paddingVertical: 16,
-    borderRadius: 6,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderRadius: 7,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   primaryButtonText: {
     color: COLORS.white,
     fontWeight: "800",
-    fontSize: 13,
+    fontSize: 12,
   },
 
   secondaryButton: {
     borderWidth: 1,
     borderColor: COLORS.primary,
-    paddingHorizontal: 22,
-    paddingVertical: 15,
-    borderRadius: 6,
+    paddingHorizontal: 19,
+    paddingVertical: 14,
+    borderRadius: 7,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   secondaryButtonText: {
     color: COLORS.primary,
     fontWeight: "800",
-    fontSize: 13,
+    fontSize: 12,
   },
 
   heroNote: {
-    marginTop: 35,
+    marginTop: 28,
   },
 
   heroNoteText: {
-    fontSize: 12,
+    fontSize: 11,
     color: COLORS.muted,
     fontWeight: "600",
   },
@@ -271,8 +284,9 @@ export const styles = StyleSheet.create({
   heroVisual: {
     flex: 1,
     width: "100%",
+    minHeight: 320,
     backgroundColor: COLORS.primary,
-    borderRadius: 12,
+    borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
@@ -280,8 +294,8 @@ export const styles = StyleSheet.create({
   },
 
   heroCircle: {
-    height: 245,
-    width: 245,
+    height: 220,
+    width: 220,
     borderRadius: 150,
     borderWidth: 2,
     borderColor: COLORS.orange,
@@ -290,38 +304,41 @@ export const styles = StyleSheet.create({
     backgroundColor: "#B92325",
   },
 
-  heroFoodIcon: {
-    fontSize: 105,
+  heroFoodImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 200,
   },
 
   heroVisualTitle: {
     color: COLORS.white,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "900",
-    letterSpacing: 2,
+    marginTop: 15,
+    letterSpacing: 1.5,
   },
 
   heroVisualSub: {
     color: COLORS.orange,
-    fontSize: 10,
-    letterSpacing: 3,
+    fontSize: 9,
+    letterSpacing: 2,
     marginTop: 7,
     fontWeight: "800",
   },
 
   heroBadge: {
     position: "absolute",
-    bottom: 15,
-    right: 15,
+    bottom: 14,
+    right: 14,
     backgroundColor: COLORS.orange,
-    paddingHorizontal: 17,
-    paddingVertical: 13,
-    borderRadius: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 11,
+    borderRadius: 6,
   },
 
   heroBadgeTop: {
     fontWeight: "900",
-    fontSize: 12,
+    fontSize: 11,
     color: COLORS.primary,
   },
 
@@ -330,15 +347,16 @@ export const styles = StyleSheet.create({
     fontSize: 8,
     color: COLORS.dark,
     marginTop: 4,
-    letterSpacing: 1,
+    letterSpacing: 0.8,
   },
 
+  // BRAND STRIP
   brandStrip: {
     backgroundColor: COLORS.primary,
-    paddingVertical: 20,
+    paddingVertical: 18,
     paddingHorizontal: 15,
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
     gap: 12,
@@ -346,51 +364,56 @@ export const styles = StyleSheet.create({
 
   stripText: {
     color: COLORS.white,
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "900",
-    letterSpacing: 1.3,
+    letterSpacing: 1,
+    textAlign: "center",
   },
 
   stripDot: {
     color: COLORS.orange,
-    fontSize: 17,
+    fontSize: 15,
   },
 
+  // MENU INTRO
   menuIntro: {
-    paddingHorizontal: 24,
-    paddingTop: 85,
-    paddingBottom: 35,
+    paddingHorizontal: 20,
+    paddingTop: 65,
+    paddingBottom: 30,
     alignItems: "center",
   },
 
   sectionEyebrow: {
     color: COLORS.primary,
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "900",
-    letterSpacing: 2.5,
-    marginBottom: 14,
+    letterSpacing: 2,
+    marginBottom: 12,
+    textAlign: "center",
   },
 
   sectionTitle: {
-    fontSize: 38,
+    fontSize: 32,
     fontWeight: "900",
     color: COLORS.dark,
     textAlign: "center",
+    lineHeight: 40,
   },
 
   sectionDescription: {
-    fontSize: 14,
-    lineHeight: 24,
+    fontSize: 13,
+    lineHeight: 23,
     color: COLORS.muted,
     textAlign: "center",
     maxWidth: 520,
-    marginTop: 14,
+    marginTop: 12,
   },
 
+  // CATEGORY FILTER
   categoryContainer: {
-    paddingHorizontal: 24,
-    gap: 10,
-    paddingBottom: 25,
+    paddingHorizontal: 20,
+    gap: 9,
+    paddingBottom: 22,
     justifyContent: "center",
     width: "100%",
   },
@@ -399,8 +422,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: 30,
-    paddingHorizontal: 22,
-    paddingVertical: 12,
+    paddingHorizontal: 18,
+    paddingVertical: 11,
     backgroundColor: COLORS.white,
   },
 
@@ -411,7 +434,7 @@ export const styles = StyleSheet.create({
 
   categoryText: {
     color: COLORS.dark,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "700",
   },
 
@@ -419,51 +442,55 @@ export const styles = StyleSheet.create({
     color: COLORS.white,
   },
 
+  // MENU SECTIONS
   menuSection: {
-    paddingHorizontal: 24,
-    paddingTop: 40,
-    paddingBottom: 35,
+    paddingHorizontal: 20,
+    paddingTop: 32,
+    paddingBottom: 28,
+    width: "100%",
   },
 
   menuSectionHeading: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 28,
-    paddingBottom: 20,
+    marginBottom: 22,
+    paddingBottom: 17,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
   },
 
   sectionNumber: {
-    fontSize: 10,
+    fontSize: 9,
     color: COLORS.primary,
     letterSpacing: 2,
     fontWeight: "900",
-    marginBottom: 9,
+    marginBottom: 8,
   },
 
   menuSectionTitle: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: "900",
     color: COLORS.dark,
   },
 
   menuSectionSub: {
-    fontSize: 13,
+    fontSize: 12,
     color: COLORS.muted,
-    marginTop: 7,
+    marginTop: 6,
   },
 
   menuDecor: {
-    fontSize: 35,
+    fontSize: 30,
     color: COLORS.orange,
   },
 
+  // FOOD GRID AND CARDS
   foodGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 18,
+    gap: 14,
+    justifyContent: "flex-start",
   },
 
   foodCard: {
@@ -476,7 +503,7 @@ export const styles = StyleSheet.create({
   },
 
   foodCardVisual: {
-    height: 145,
+    height: 155,
     backgroundColor: "#F7E5D5",
     alignItems: "center",
     justifyContent: "center",
@@ -484,24 +511,27 @@ export const styles = StyleSheet.create({
   },
 
   foodCardCircle: {
-    width: 100,
-    height: 100,
+    width: 105,
+    height: 105,
     borderRadius: 100,
     backgroundColor: "#FFF5E9",
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 2,
     borderColor: COLORS.orange,
+    overflow: "hidden",
   },
 
-  foodCardEmoji: {
-    fontSize: 55,
+  foodCardImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 100,
   },
 
   foodCardTag: {
     position: "absolute",
-    top: 12,
-    left: 12,
+    top: 11,
+    left: 11,
     backgroundColor: COLORS.primary,
     borderRadius: 3,
     paddingHorizontal: 9,
@@ -512,34 +542,35 @@ export const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 8,
     fontWeight: "900",
-    letterSpacing: 1,
+    letterSpacing: 0.8,
   },
 
   foodCardContent: {
-    padding: 18,
+    padding: 15,
   },
 
   foodName: {
-    fontSize: 19,
+    fontSize: 17,
     fontWeight: "900",
     color: COLORS.dark,
+    lineHeight: 23,
   },
 
   foodDescription: {
     color: COLORS.muted,
-    fontSize: 12,
-    lineHeight: 19,
-    marginTop: 7,
-    minHeight: 38,
+    fontSize: 11,
+    lineHeight: 18,
+    marginTop: 6,
+    minHeight: 36,
   },
 
   portionLabel: {
     fontSize: 9,
     color: COLORS.primary,
     fontWeight: "900",
-    letterSpacing: 1.3,
-    marginTop: 22,
-    marginBottom: 10,
+    letterSpacing: 1.1,
+    marginTop: 18,
+    marginBottom: 9,
   },
 
   portionList: {
@@ -550,13 +581,13 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingVertical: 11,
-    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 9,
     borderRadius: 5,
     backgroundColor: "#FAF8F5",
     borderWidth: 1,
     borderColor: "transparent",
-    gap: 8,
+    gap: 7,
   },
 
   portionSelected: {
@@ -567,8 +598,9 @@ export const styles = StyleSheet.create({
   portionLeft: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 9,
+    gap: 8,
     flex: 1,
+    minWidth: 0,
   },
 
   radio: {
@@ -579,6 +611,7 @@ export const styles = StyleSheet.create({
     borderColor: "#B7AAA3",
     alignItems: "center",
     justifyContent: "center",
+    flexShrink: 0,
   },
 
   radioSelected: {
@@ -593,67 +626,78 @@ export const styles = StyleSheet.create({
   },
 
   portionName: {
-    fontSize: 11,
+    fontSize: 10,
     color: COLORS.dark,
     fontWeight: "500",
+    flexShrink: 1,
   },
 
   portionPrice: {
-    fontSize: 11,
+    fontSize: 10,
     color: COLORS.dark,
     fontWeight: "800",
+    flexShrink: 0,
   },
 
   addButton: {
     backgroundColor: COLORS.primary,
     paddingVertical: 14,
-    borderRadius: 5,
-    marginTop: 17,
+    borderRadius: 6,
+    marginTop: 16,
     alignItems: "center",
+    justifyContent: "center",
   },
 
   addButtonText: {
     color: COLORS.white,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "900",
   },
 
+  // ABOUT SECTION
   aboutSection: {
     backgroundColor: "#F4E6D9",
-    padding: 35,
-    gap: 45,
+    paddingHorizontal: 22,
+    paddingVertical: 40,
+    gap: 30,
     alignItems: "center",
-    marginTop: 65,
+    marginTop: 45,
+    width: "100%",
   },
 
   aboutVisual: {
     flex: 1,
-    minHeight: 300,
+    minHeight: 280,
     width: "100%",
     backgroundColor: COLORS.primary,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
+    overflow: "hidden",
   },
 
   aboutEmoji: {
+    color: COLORS.cream,
     fontSize: 85,
+    fontWeight: "900",
   },
 
   aboutVisualTitle: {
     color: COLORS.white,
     fontWeight: "900",
-    fontSize: 17,
-    letterSpacing: 2,
+    fontSize: 15,
+    letterSpacing: 1.5,
     marginTop: 15,
+    textAlign: "center",
   },
 
   aboutVisualSub: {
     color: COLORS.orange,
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "800",
-    letterSpacing: 3,
-    marginTop: 10,
+    letterSpacing: 2,
+    marginTop: 9,
+    textAlign: "center",
   },
 
   aboutContent: {
@@ -663,55 +707,58 @@ export const styles = StyleSheet.create({
   },
 
   aboutTitle: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: "900",
     color: COLORS.dark,
-    lineHeight: 44,
+    lineHeight: 39,
   },
 
   aboutText: {
     color: COLORS.muted,
-    fontSize: 14,
-    lineHeight: 26,
-    marginTop: 18,
+    fontSize: 13,
+    lineHeight: 24,
+    marginTop: 15,
   },
 
   aboutSignature: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: "900",
     color: COLORS.primary,
-    marginTop: 25,
+    marginTop: 22,
   },
 
+  // ORDER SECTION
   orderSection: {
-    paddingHorizontal: 24,
-    paddingTop: 85,
-    paddingBottom: 85,
+    paddingHorizontal: 20,
+    paddingTop: 65,
+    paddingBottom: 65,
     alignItems: "center",
     backgroundColor: COLORS.cream,
+    width: "100%",
   },
 
   orderTitle: {
-    fontSize: 34,
+    fontSize: 29,
     fontWeight: "900",
     textAlign: "center",
     color: COLORS.dark,
+    lineHeight: 38,
   },
 
   orderDescription: {
-    fontSize: 13,
+    fontSize: 12,
     color: COLORS.muted,
     textAlign: "center",
     maxWidth: 450,
-    lineHeight: 23,
-    marginTop: 12,
-    marginBottom: 35,
+    lineHeight: 22,
+    marginTop: 11,
+    marginBottom: 28,
   },
 
   cartContainer: {
     width: "100%",
     maxWidth: 650,
-    padding: 25,
+    padding: 18,
     borderRadius: 10,
     backgroundColor: COLORS.white,
     borderWidth: 1,
@@ -722,61 +769,64 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingBottom: 20,
+    paddingBottom: 17,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
+    gap: 10,
   },
 
   cartTitle: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "900",
     color: COLORS.dark,
   },
 
   cartSubtitle: {
-    fontSize: 11,
+    fontSize: 10,
     color: COLORS.muted,
     marginTop: 5,
   },
 
   cartIcon: {
-    fontSize: 30,
+    fontSize: 27,
   },
 
   emptyCart: {
     alignItems: "center",
-    paddingVertical: 45,
+    paddingVertical: 38,
   },
 
   emptyCartIcon: {
-    fontSize: 45,
+    fontSize: 42,
   },
 
   emptyCartTitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: COLORS.dark,
     fontWeight: "800",
-    marginTop: 15,
+    marginTop: 14,
   },
 
   emptyCartText: {
-    fontSize: 12,
+    fontSize: 11,
     color: COLORS.muted,
-    marginTop: 8,
+    marginTop: 7,
     textAlign: "center",
+    lineHeight: 18,
   },
 
   cartItem: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 17,
-    gap: 10,
+    paddingVertical: 15,
+    gap: 9,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
+    flexWrap: "wrap",
   },
 
   cartItemName: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "800",
     color: COLORS.dark,
   },
@@ -790,12 +840,12 @@ export const styles = StyleSheet.create({
   quantityControls: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 9,
+    gap: 8,
   },
 
   quantityButton: {
-    height: 25,
-    width: 25,
+    height: 27,
+    width: 27,
     backgroundColor: COLORS.cream,
     alignItems: "center",
     justifyContent: "center",
@@ -809,7 +859,7 @@ export const styles = StyleSheet.create({
   },
 
   quantityValue: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "800",
     color: COLORS.dark,
   },
@@ -823,42 +873,44 @@ export const styles = StyleSheet.create({
   cartDivider: {
     height: 1,
     backgroundColor: COLORS.border,
-    marginVertical: 22,
+    marginVertical: 19,
   },
 
   inputLabel: {
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: "800",
     color: COLORS.dark,
-    marginBottom: 9,
-    marginTop: 15,
+    marginBottom: 8,
+    marginTop: 14,
   },
 
   textInput: {
     borderWidth: 1,
     borderColor: COLORS.border,
     backgroundColor: "#FFFCF9",
-    borderRadius: 5,
-    padding: 13,
+    borderRadius: 6,
+    padding: 12,
     fontSize: 12,
     color: COLORS.dark,
+    minHeight: 44,
   },
 
   totalRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 25,
+    marginTop: 22,
+    gap: 10,
   },
 
   totalLabel: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: "800",
     color: COLORS.dark,
   },
 
   totalValue: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "900",
     color: COLORS.primary,
   },
@@ -867,26 +919,31 @@ export const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 17,
     color: COLORS.muted,
-    marginTop: 12,
+    marginTop: 11,
   },
 
   whatsappButton: {
     backgroundColor: "#198754",
-    paddingVertical: 17,
-    borderRadius: 5,
+    paddingVertical: 16,
+    paddingHorizontal: 15,
+    borderRadius: 6,
     alignItems: "center",
-    marginTop: 20,
+    justifyContent: "center",
+    marginTop: 18,
   },
 
   whatsappButtonText: {
     color: COLORS.white,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "900",
   },
 
+  // CONTACT SECTION
   contactSection: {
     backgroundColor: COLORS.primary,
-    padding: 35,
+    paddingHorizontal: 22,
+    paddingVertical: 40,
+    width: "100%",
   },
 
   contactContent: {
@@ -897,33 +954,33 @@ export const styles = StyleSheet.create({
 
   contactTitle: {
     color: COLORS.white,
-    fontSize: 38,
+    fontSize: 32,
     fontWeight: "900",
-    lineHeight: 45,
+    lineHeight: 41,
   },
 
   contactDescription: {
     color: "#F3D4CC",
-    fontSize: 13,
-    lineHeight: 23,
-    marginTop: 15,
-    marginBottom: 30,
+    fontSize: 12,
+    lineHeight: 22,
+    marginTop: 13,
+    marginBottom: 25,
     maxWidth: 450,
   },
 
   contactItem: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 17,
-    paddingVertical: 17,
+    gap: 14,
+    paddingVertical: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#FFFFFF30",
   },
 
   contactIcon: {
     color: COLORS.orange,
-    fontSize: 25,
-    width: 35,
+    fontSize: 23,
+    width: 32,
     textAlign: "center",
   },
 
@@ -931,35 +988,40 @@ export const styles = StyleSheet.create({
     color: COLORS.orange,
     fontSize: 9,
     fontWeight: "900",
-    letterSpacing: 1.5,
+    letterSpacing: 1.3,
     marginBottom: 5,
   },
 
   contactValue: {
     color: COLORS.white,
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: "600",
-    lineHeight: 22,
+    lineHeight: 21,
+    flexShrink: 1,
   },
 
   contactButton: {
     backgroundColor: COLORS.orange,
-    padding: 17,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
     alignItems: "center",
-    borderRadius: 5,
-    marginTop: 30,
+    justifyContent: "center",
+    borderRadius: 6,
+    marginTop: 25,
     alignSelf: "flex-start",
   },
 
   contactButtonText: {
     color: COLORS.primary,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "900",
   },
 
+  // FOOTER
   footer: {
     backgroundColor: "#24100F",
-    padding: 35,
+    paddingHorizontal: 22,
+    paddingVertical: 35,
     alignItems: "center",
   },
 
@@ -968,17 +1030,19 @@ export const styles = StyleSheet.create({
   },
 
   footerBrandName: {
-    fontSize: 20,
+    fontSize: 19,
     color: COLORS.white,
     fontWeight: "900",
-    letterSpacing: 2,
+    letterSpacing: 1.5,
+    textAlign: "center",
   },
 
   footerTagline: {
     color: "#BBA8A1",
-    fontSize: 11,
+    fontSize: 10,
     textAlign: "center",
-    marginTop: 10,
+    marginTop: 9,
+    lineHeight: 17,
   },
 
   footerDivider: {
@@ -986,21 +1050,22 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF25",
     width: "100%",
     maxWidth: 600,
-    marginVertical: 25,
+    marginVertical: 22,
   },
 
   footerSlogan: {
     color: COLORS.orange,
     fontWeight: "900",
-    fontSize: 11,
-    letterSpacing: 2,
+    fontSize: 10,
+    letterSpacing: 1.5,
     textAlign: "center",
   },
 
   copyright: {
-    fontSize: 10,
+    fontSize: 9,
     color: "#BBA8A1",
-    marginTop: 20,
+    marginTop: 18,
     textAlign: "center",
+    lineHeight: 16,
   },
 });

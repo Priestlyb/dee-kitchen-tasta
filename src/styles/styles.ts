@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { COLORS } from "../constants/brand";
 
 export const styles = StyleSheet.create({
@@ -1067,5 +1067,135 @@ export const styles = StyleSheet.create({
     marginTop: 18,
     textAlign: "center",
     lineHeight: 16,
+  },
+
+  // FLOATING CART
+
+  floatingCartWrapper: {
+    position: "absolute",
+    bottom: Platform.OS === "web" ? 30 : 24,
+    left: 20,
+    right: 20,
+    alignItems: "center",
+    zIndex: 100,
+    elevation: 12,
+  },
+
+  floatingCart: {
+    width: "100%",
+    maxWidth: 430,
+    minHeight: 72,
+    backgroundColor: COLORS.dark,
+    borderRadius: 18,
+    paddingHorizontal: 17,
+    paddingVertical: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 13,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    elevation: 10,
+  },
+
+  floatingCartIconWrapper: {
+    width: 43,
+    height: 43,
+    borderRadius: 14,
+    backgroundColor: COLORS.cream,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+  },
+
+  floatingCartIcon: {
+    fontSize: 20,
+  },
+
+  floatingCartBadge: {
+    position: "absolute",
+    top: -6,
+    right: -6,
+    minWidth: 19,
+    height: 19,
+    paddingHorizontal: 4,
+    borderRadius: 10,
+    backgroundColor: COLORS.orange,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  floatingCartBadgeText: {
+    color: COLORS.white,
+    fontSize: 10,
+    fontWeight: "900",
+  },
+
+  floatingCartContent: {
+    flex: 1,
+    gap: 3,
+  },
+
+  floatingCartTitle: {
+    color: COLORS.white,
+    fontSize: 14,
+    fontWeight: "800",
+  },
+
+  floatingCartSubtitle: {
+    color: "#D8C9C2",
+    fontSize: 11,
+    fontWeight: "500",
+  },
+
+  floatingCartPriceWrapper: {
+    alignItems: "flex-end",
+    gap: 3,
+  },
+
+  floatingCartPrice: {
+    color: COLORS.orange,
+    fontSize: 15,
+    fontWeight: "900",
+  },
+
+  floatingCartArrow: {
+    color: COLORS.white,
+    fontSize: 17,
+    fontWeight: "800",
+  },
+
+  // BACK TO TOP
+
+  backToTop: {
+    position: "absolute",
+    right: 20,
+    bottom: Platform.OS === "web" ? 120 : 112,
+    width: 46,
+    height: 46,
+    borderRadius: 15,
+    backgroundColor: COLORS.primary,
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 101,
+    elevation: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 7,
+  },
+
+  backToTopIcon: {
+    color: COLORS.white,
+    fontSize: 25,
+    fontWeight: "900",
+    lineHeight: 29,
   },
 });

@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useRef, useEffect } from "react";
+
 import {
   View,
   Text,
@@ -10,6 +11,7 @@ import {
   StatusBar,
   SafeAreaView,
   Image,
+  Animated,
 } from "react-native";
 
 import { COLORS, BUSINESS } from "./src/constants/brand";
@@ -17,6 +19,7 @@ import { categories, menuSections, money } from "./src/data/menu";
 import type { Food, Portion, CartItem } from "./src/types/menu";
 import FoodCard from "./src/components/FoodCard";
 import { styles } from "./src/styles/styles";
+
 import {
   openWhatsApp,
   sendWhatsAppOrder as sendOrderToWhatsApp,
@@ -28,10 +31,22 @@ export default function App() {
   const isDesktop = width >= 900;
   const isTablet = width >= 600;
 
+  // STATES
+
   const [activeCategory, setActiveCategory] = useState("All");
   const [cart, setCart] = useState<CartItem[]>([]);
   const [customerName, setCustomerName] = useState("");
   const [specialRequest, setSpecialRequest] = useState("");
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // REFERENCES
+
+  const scrollViewRef = useRef<ScrollView>(null);
+  const orderSectionY = useRef(0);
+
+  const floatingCartAnimation = useRef(new Animated.Value(0)).current;
+
+  // CART TOTALS
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -39,6 +54,19 @@ export default function App() {
     (sum, item) => sum + item.price * item.quantity,
     0,
   );
+
+  // FLOATING CART ANIMATION
+
+  useEffect(() => {
+    Animated.spring(floatingCartAnimation, {
+      toValue: totalItems > 0 ? 1 : 0,
+      useNativeDriver: true,
+      friction: 7,
+      tension: 60,
+    }).start();
+  }, [totalItems, floatingCartAnimation]);
+
+  // ADD TO CART
 
   const addToCart = (food: Food, portion: Portion) => {
     const cartId = `${food.id}-${portion.name}`;
@@ -65,6 +93,8 @@ export default function App() {
     });
   };
 
+  // UPDATE CART QUANTITY
+
   const updateQuantity = (id: string, change: number) => {
     setCart((previous) =>
       previous
@@ -80,6 +110,8 @@ export default function App() {
     );
   };
 
+  // FILTER MENU
+
   const visibleSections = useMemo(() => {
     if (activeCategory === "All") {
       return menuSections;
@@ -87,6 +119,8 @@ export default function App() {
 
     return menuSections.filter((section) => section.title === activeCategory);
   }, [activeCategory]);
+
+  // WHATSAPP ORDER
 
   const handleWhatsAppOrder = () => {
     if (!cart.length) return;
@@ -98,6 +132,8 @@ export default function App() {
     void openWhatsApp();
   };
 
+  // CONTACT ACTIONS
+
   const openInstagram = () => {
     void Linking.openURL(BUSINESS.instagram);
   };
@@ -106,21 +142,46 @@ export default function App() {
     void Linking.openURL(`tel:+${BUSINESS.phone}`);
   };
 
+  // SCROLL ACTIONS
+
   const scrollToMenu = () => {
     setActiveCategory("All");
   };
 
+  const scrollToTop = () => {
+    scrollViewRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
+  };
+
+  const scrollToOrder = () => {
+    scrollViewRef.current?.scrollTo({
+      y: Math.max(orderSectionY.current - 20, 0),
+      animated: true,
+    });
+  };
+
+  const handleScroll = (event: {
+    nativeEvent: {
+      contentOffset: {
+        y: number;
+      };
+    };
+  }) => {
+    const scrollPosition = event.nativeEvent.contentOffset.y;
+
+    setShowBackToTop(scrollPosition > 450);
+  };
+
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar backgroundColor={COLORS.cream} barStyle="dark-content" />
+      <StatusBar barStyle="dark-content" />
 
       {/* NAVIGATION */}
 
       <View style={styles.nav}>
-        <TouchableOpacity
-          onPress={() => setActiveCategory("All")}
-          style={styles.brand}
-        >
+        <TouchableOpacity onPress={scrollToTop} style={styles.brand}>
           <View style={styles.brandMark}>
             <Image
               source={require("./assets/logo.png")}
@@ -137,10 +198,7 @@ export default function App() {
 
         {isDesktop && (
           <View style={styles.navLinks}>
-            <Text
-              onPress={() => setActiveCategory("All")}
-              style={styles.navLink}
-            >
+            <Text onPress={scrollToTop} style={styles.navLink}>
               Home
             </Text>
 
@@ -159,9 +217,14 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
+      {/* MAIN PAGE SCROLLVIEW */}
+
       <ScrollView
+        ref={scrollViewRef}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 50 }}
+        contentContainerStyle={{ paddingBottom: 100 }}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
       >
         {/* HERO */}
 
@@ -184,6 +247,7 @@ export default function App() {
             <View style={styles.heroTitleWrapper}>
               <View style={styles.heroEyebrow}>
                 <View style={styles.heroEyebrowLine} />
+
                 <Text style={styles.heroEyebrowText}>
                   GOOD FOOD. GREAT MEMORIES.
                 </Text>
@@ -205,6 +269,7 @@ export default function App() {
                   >
                     Real flavour.
                   </Text>
+
                   <Text style={styles.heroHighlightStar}>✦</Text>
                 </View>
 
@@ -214,20 +279,23 @@ export default function App() {
                   >
                     Real love.
                   </Text>
+
                   <Text style={styles.heroAccent}>♥</Text>
                 </View>
               </View>
 
               <View style={styles.heroCaption}>
                 <View style={styles.heroCaptionLine} />
+
                 <Text style={styles.heroCaptionText}>
                   AUTHENTIC CALABAR FLAVOURS
                 </Text>
               </View>
             </View>
 
-            {/* HERO DESCRIPTION 
+            {/* HERO DESCRIPTION */}
 
+            {/*
             <Text style={styles.heroDescription}>
               Authentic Calabar flavours, cooked fresh and served with love.
             </Text>
@@ -237,7 +305,9 @@ export default function App() {
                 style={styles.primaryButton}
                 onPress={scrollToMenu}
               >
-                <Text style={styles.primaryButtonText}>Explore Our Menu →</Text>
+                <Text style={styles.primaryButtonText}>
+                  Explore Our Menu →
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -249,7 +319,6 @@ export default function App() {
                 </Text>
               </TouchableOpacity>
             </View>
-
             */}
 
             <View style={styles.heroNote}>
@@ -420,7 +489,12 @@ export default function App() {
 
         {/* ORDER SECTION */}
 
-        <View style={styles.orderSection}>
+        <View
+          style={styles.orderSection}
+          onLayout={(event) => {
+            orderSectionY.current = event.nativeEvent.layout.y;
+          }}
+        >
           <Text style={styles.sectionEyebrow}>YOUR CRAVINGS, OUR PRIORITY</Text>
 
           <Text style={styles.orderTitle}>Ready to taste the goodness?</Text>
@@ -629,6 +703,74 @@ export default function App() {
           </Text>
         </View>
       </ScrollView>
+
+      {/* FLOATING CART */}
+
+      <Animated.View
+        pointerEvents={totalItems > 0 ? "auto" : "none"}
+        style={[
+          styles.floatingCartWrapper,
+          {
+            opacity: floatingCartAnimation,
+            transform: [
+              {
+                translateY: floatingCartAnimation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [30, 0],
+                }),
+              },
+              {
+                scale: floatingCartAnimation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.9, 1],
+                }),
+              },
+            ],
+          },
+        ]}
+      >
+        <TouchableOpacity
+          style={styles.floatingCart}
+          onPress={scrollToOrder}
+          activeOpacity={0.85}
+        >
+          <View style={styles.floatingCartIconWrapper}>
+            <Text style={styles.floatingCartIcon}>🛒</Text>
+
+            <View style={styles.floatingCartBadge}>
+              <Text style={styles.floatingCartBadgeText}>
+                {totalItems > 99 ? "99+" : totalItems}
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.floatingCartContent}>
+            <Text style={styles.floatingCartTitle}>Your Cart</Text>
+
+            <Text style={styles.floatingCartSubtitle}>
+              {totalItems} {totalItems === 1 ? "item" : "items"}
+            </Text>
+          </View>
+
+          <View style={styles.floatingCartPriceWrapper}>
+            <Text style={styles.floatingCartPrice}>{money(totalPrice)}</Text>
+
+            <Text style={styles.floatingCartArrow}>→</Text>
+          </View>
+        </TouchableOpacity>
+      </Animated.View>
+
+      {/* BACK TO TOP */}
+
+      {showBackToTop && (
+        <TouchableOpacity
+          style={styles.backToTop}
+          onPress={scrollToTop}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.backToTopIcon}>↑</Text>
+        </TouchableOpacity>
+      )}
     </SafeAreaView>
   );
 }
